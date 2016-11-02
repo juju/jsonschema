@@ -140,21 +140,17 @@ type Schema struct {
 	// during an interactive session.
 	Order []string `json:"order,omitempty"`
 
-	// Prompt contains the text to display to the user during an interactive
-	// session.
-	Prompt string `json:"prompt,omitempty"`
+	// Singular contains the singular version of the human-friendly name of this
+	// property.
+	Singular string `json:"singular,omitempty"`
+
+	// Plural contains the plural version of the human-friendly name of this
+	// property.
+	Plural string `json:"plural,omitempty"`
 
 	// PromptDefault contains the default value the user can accept during
 	// interactive add-cloud.
 	PromptDefault interface{} `json:"prompt-default,omitempty"`
-
-	// ListHeader contains the value to print at the top of the list of options
-	// during interactive bootstrap.
-	ListHeader string `json:"list-header,omitempty"`
-
-	// ValidationError contains the error message to show the user if they
-	// enter an invalid value at the interactive prompt.
-	ValidationError string `json:"validation-error,omitempty"`
 
 	// PathFor should contain the name of another property in this schema. If a
 	// value for that property does not exist, and this property's value is set,
@@ -184,18 +180,16 @@ func toExtras(s *Schema) map[string]interface{} {
 	if len(s.Order) > 0 {
 		extras["order"] = s.Order
 	}
-	if s.Prompt != "" {
-		extras["prompt"] = s.Prompt
+	if s.Singular != "" {
+		extras["singular"] = s.Singular
 	}
 	if s.PromptDefault != nil {
 		extras["prompt-default"] = s.PromptDefault
 	}
-	if s.ListHeader != "" {
-		extras["list-header"] = s.ListHeader
+	if s.Plural != "" {
+		extras["plural"] = s.Plural
 	}
-	if s.ValidationError != "" {
-		extras["validation-error"] = s.ValidationError
-	}
+
 	if s.PathFor != "" {
 		extras["path-for"] = s.PathFor
 	}
