@@ -26,7 +26,9 @@ const jsonExample = `
       "type": "string",
       "minLength": 5,
       "maxLength": 10,
-      "secret": true
+      "secret": true,
+	  "singular": "payload",
+	  "plural": "payloads"
     }
   },
   "immutable": true
@@ -41,6 +43,8 @@ properties:
     minLength: 5
     maxLength: 10
     secret: true
+    singular: payload
+    plural: payloads
 immutable: true
 `
 
@@ -52,6 +56,8 @@ var objExample = &Schema{
 			MinLength: Int(5),
 			MaxLength: Int(10),
 			Secret:    true,
+			Singular:  "payload",
+			Plural:    "payloads",
 		},
 	},
 	Immutable: true,
