@@ -10,12 +10,12 @@ import (
 	"io/ioutil"
 	"regexp"
 
+	"github.com/juju/utils/v3"
+	"gopkg.in/yaml.v3"
+
 	// Schema *is* the actual package name, this just makes it clearer.
 	schema "github.com/lestrrat/go-jsschema"
 	"github.com/lestrrat/go-jsschema/validator"
-	"gopkg.in/yaml.v2"
-
-	"github.com/juju/utils"
 )
 
 // FromJSON returns a schema created from the json value in r.
