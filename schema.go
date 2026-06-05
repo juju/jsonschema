@@ -10,7 +10,6 @@ import (
 	"io/ioutil"
 	"regexp"
 
-	"github.com/juju/utils/v3"
 	"gopkg.in/yaml.v3"
 
 	// Schema *is* the actual package name, this just makes it clearer.
@@ -40,7 +39,7 @@ func FromYAML(r io.Reader) (*Schema, error) {
 
 	// yaml serialization outputs map[interface{}]interface{} instead of
 	// map[string]interface{} for some reason, so we have to fix that.
-	val, err := utils.ConformYAML(v)
+	val, err := conformYAML(v)
 	if err != nil {
 		return nil, err
 	}
